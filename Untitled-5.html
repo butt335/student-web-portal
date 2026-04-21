@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feedback</title>
+
+<style>
+body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    min-height: 100vh;
+}
+
+/* Glass container */
+.box {
+    display: inline-block;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Inputs styling */
+input, textarea, select {
+    width: 250px;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #00ffcc;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Feedback</h2>
+
+<input id="name" placeholder="Name"><br>
+<textarea id="comments" placeholder="Comments"></textarea><br>
+
+<select id="rating">
+<option value="">Rating</option>
+<option>Excellent</option>
+<option>Good</option>
+<option>Average</option>
+</select><br>
+
+<button onclick="submitFeedback()">Submit</button>
+
+<br><br>
+<a href="dashboard.html" style="color:white;">Back</a>
+
+</div>
+
+<script>
+function submitFeedback(){
+let n=document.getElementById("name").value;
+let c=document.getElementById("comments").value;
+
+if(!n || !c){
+    alert("Fill all fields");
+    return;
+}
+alert("Feedback Submitted Successfully!");
+}
+</script>
+
+</body>
+</html>

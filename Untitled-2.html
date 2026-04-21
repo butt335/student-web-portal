@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .box {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 60px;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2 class="text-center">Registration</h2>
+
+<input id="name" placeholder="Name" class="form-control mb-2">
+<input id="email" placeholder="Email" class="form-control mb-2">
+<input id="password" type="password" placeholder="Password" class="form-control mb-2">
+<input id="confirm" type="password" placeholder="Confirm Password" class="form-control mb-2">
+<input id="age" placeholder="Age" class="form-control mb-2">
+
+<select id="gender" class="form-control mb-2">
+    <option value="">Select Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+</select>
+
+<button class="btn btn-primary w-100" onclick="validateForm()">Register</button>
+
+<br><br>
+<a href="index.html" class="text-white">Back Home</a>
+
+</div>
+
+<script>
+function validateForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm").value;
+    let age = document.getElementById("age").value;
+
+    if (!name || !email || !pass || !confirm || !age) {
+        alert("All fields required");
+        return;
+    }
+
+    if (!email.includes("@")) {
+        alert("Invalid Email");
+        return;
+    }
+
+    if (pass !== confirm) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    if (isNaN(age)) {
+        alert("Age must be number");
+        return;
+    }
+
+    localStorage.setItem("studentName", name);
+    window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>
